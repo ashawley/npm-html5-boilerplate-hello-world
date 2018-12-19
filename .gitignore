@@ -1,0 +1,5 @@
+node_modules
+package-lock.json
+app/dist/
+test/reports
+junit_results.xml
