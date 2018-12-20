@@ -7,5 +7,12 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 3 # give xvfb some time to start
   - export CHROME_BIN=/usr/bin/google-chrome
+  - npm run start:webdriver
+script:
+  - npm test
+  - npm run start &
+  - sleep 3 # give http-server some time to start
+  - npm run test:protractor
 addons:
   chrome: stable
+  firefox: latest

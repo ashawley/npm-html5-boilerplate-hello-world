@@ -104,6 +104,10 @@ Build task:
 
 End-to-end testing requires protractor:
 
+    $ npm install -g protractor
+    $ webdriver-manager update
+    $ webdriver-manager start
+
 You can start the server with:
 
     $ npm run watch:start
