@@ -75,31 +75,25 @@ Build task:
 
     $ npm run build
     
-    > npm-html5-boilerplate-hello-world@0.0.0 prebuild ./
+    > hello-html5-boilerplate@0.0.0 prebuild ./
     > npm install && npm run lint
     
+    audited 5395 packages in 7.602s
+    found 0 vulnerabilities
     
-    > npm-html5-boilerplate-hello-world@0.0.0 postinstall ./
-    > npm run copy-libs
-    
-    > npm-html5-boilerplate-hello-world@0.0.0 copy-libs ./
-    > node scripts/copy-libs.js
-    
-    up to date in 7.17s
-    
-    > npm-html5-boilerplate-hello-world@0.0.0 lint ./
+    > hello-html5-boilerplate@0.0.0 lint ./
     > jshint ./app/js --exclude ./app/dist
     
-    > npm-html5-boilerplate-hello-world@0.0.0 build ./
+    > hello-html5-boilerplate@0.0.0 build ./
     > npm run build:browserify && npm run build:uglify && npm run build:less
     
-    > npm-html5-boilerplate-hello-world@0.0.0 build:browserify ./
+    > hello-html5-boilerplate@0.0.0 build:browserify ./
     > browserify ./app/js/index.js -o ./app/dist/js/index.js
 
-    > npm-html5-boilerplate-hello-world@0.0.0 build:uglify ./
+    > hello-html5-boilerplate@0.0.0 build:uglify ./
     > uglifyjs ./app/dist/js/index.js -c -o ./app/dist/js/index.min.js
     
-    > npm-html5-boilerplate-hello-world@0.0.0 build:less ./
+    > hello-html5-boilerplate@0.0.0 build:less ./
     > lessc --clean-css ./app/css/index.less ./app/dist/css/index.css
 
 End-to-end testing requires protractor:
