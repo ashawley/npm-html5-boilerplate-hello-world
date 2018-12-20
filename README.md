@@ -13,7 +13,7 @@ Initialize project:
 
     $ npm init
 
-    package name: npm-html5-boilerplate-hello-world
+    package name: hello-html5-boilerplate
     version: 0.0.0
     description: Hello, HTML5 boilerplate
     entry point: app/js/index.js
@@ -29,6 +29,11 @@ Initialize project:
       "version": "0.0.0",
       "description": "Hello, HTML5 boilerplate",
       "main": "app/js/index.js",
+      "directories": {
+        "test": "test"
+      },
+      "dependencies": {},
+      "devDependencies": {},
       "scripts": {
         "test": "karma start --single-run"
       },
@@ -48,24 +53,31 @@ Initialize project:
     }
     
     
-    Is this ok? (yes) yes
+    Is this OK? (yes) yes
 
 Install package dependencies:
 
-    $ npm install
-    up to date in 0.102s
-
-Add dependencies:
-
-    $ npm install html5-boilerplate jquery modernizr --save-prod
+    $ npm install html5-boilerplate --save-prod
+    + html5-boilerplate@6.1.0
+    added 1 package and audited 1 package in 2.974s
+    found 0 vulnerabilities
 
 Add development dependencies:
 
     $ npm install beefy browserify browserify-shim \
-                   budo http-server jshint \
+                  budo http-server jshint \
                   less less-plugin-clean-css \
-                  uglify-js watch \
-                  watchify --save-dev
+                  uglify-js --save-dev
+    + http-server@0.11.1
+    + browserify-shim@3.8.14
+    + browserify@16.2.3
+    + jshint@2.9.7
+    + less-plugin-clean-css@1.5.1
+    + less@3.9.0
+    + uglify-js@3.4.9
+    + beefy@2.1.8
+    + budo@11.5.0
+    added 675 packages from 417 contributors and audited 6600 packages in 39.384s
 
 Copy artifacts from html5-boilerplate:
 
@@ -96,26 +108,54 @@ Build task:
     > hello-html5-boilerplate@0.0.0 build:less ./
     > lessc --clean-css ./app/css/index.less ./app/dist/css/index.css
 
+Testing:
+
+    $ npm install jasmine-core jasmine-jquery karma karma-browserify \
+                  karma-chrome-launcher karma-coverage \
+                  karma-firefox-launcher karma-jasmine \
+                  karma-jasmine-jquery karma-junit-reporter \
+                  karma-less-preprocessor \
+                  karma-ng-html2js-preprocessor \
+                  karma-phantomjs-launcher --save-dev
+    + karma-coverage@1.1.2
+    + jasmine-jquery@2.1.1
+    + karma-chrome-launcher@2.2.0
+    + @metahub/karma-jasmine-jquery@2.0.1
+    + karma-firefox-launcher@1.1.0
+    + karma-junit-reporter@1.2.0
+    + jasmine-core@3.3.0
+    + karma-browserify@6.0.0
+    + karma@3.1.4
+    + karma-jasmine@2.0.1
+    + karma-ng-html2js-preprocessor@1.0.0
+    + karma-phantomjs-launcher@1.0.4
+    + karma-less-preprocessor@0.3.3
+
 End-to-end testing requires protractor:
 
-    $ npm install -g protractor
+    $ npm install protractor phantomjs-prebuilt --save-dev
     $ webdriver-manager update
-    $ webdriver-manager start
+    $ webdriver-manager start --detach
+    $ protractor ./protractor.conf.js
 
 You can start the server with:
 
     $ npm run watch:start
     
-    > npm-html5-boilerplate-hello-world@0.0.0 watch:start ./npm-html5-boilerplate-hello-world
+    > hello-html5-boilerplate@0.0.0 watch:start ./
     > npm run start:budo
     
     
-    > npm-html5-boilerplate-hello-world@0.0.0 start:budo ./npm-html5-boilerplate-hello-world
+    > hello-html5-boilerplate@0.0.0 start:budo ./
     > budo app/js/index.js:dist/js/index.js -v -H localhost -p 8080 -d ./app --open --live -- -o app/dist/js/index.js
     
     [0002] info  Server running at http://localhost:8080/ (connect)
     [0002] info  LiveReload running
     [0003] 222ms         0B GET    200 /
+
+When you're done with end-to-end testing:
+
+    $ webdriver-manager shutdown
 
 [beefy]: http://didact.us/beefy/
 [browserify]: http://browserify.org/

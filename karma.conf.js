@@ -3,6 +3,11 @@ module.exports = function(config) {
 
     basePath: '.',
 
+    plugins: [
+      'karma-*',
+      '@metahub/karma-jasmine-jquery'
+    ],
+
     frameworks: [
       'browserify',
       'jasmine-jquery',
