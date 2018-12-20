@@ -14,12 +14,13 @@
     "pretest": "npm run build",
     "test:karma": "karma start ./karma.conf.js --single-run --no-auto-watch",
     "test:protractor": "protractor ./protractor.conf.js",
-    "test": "npm run test:karma && npm run test:protractor",
+    "test": "npm run test:karma",
     "watch:test": "karma start ./karma.conf.js --auto-watch",
-    "prestart": "npm run build",
     "start": "http-server -a localhost -p 8080 -c-1 ./app",
     "start:beefy": "beefy app/js/index.js:dist/js/index.js 8080 --index=./app/index.html --cwd ./app --open --live -- -o app/dist/js/index.js",
     "start:budo": "budo app/js/index.js:dist/js/index.js -v -H localhost -p 8080 -d ./app --open --live -- -o app/dist/js/index.js",
+    "start:webdriver": "webdriver-manager update && webdriver-manager start --detach &",
+    "stop:webdriver": "webdriver-manager shutdown",
     "watch:start": "npm run start:budo"
   },
   "browserify": {
